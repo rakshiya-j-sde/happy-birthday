@@ -1,0 +1,31 @@
+{
+  "name": "happy-birthday",
+  "version": "1.0.0",
+  "description": "An app that let's you say happy birthday to your friend in a nerdy way.",
+  "main": "index.js",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "run-script-os": "^1.0.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "preview": "node server.js",
+    "test": "node -e \"JSON.parse(require('fs').readFileSync('customize.json', 'utf8')); console.log('customize.json is valid!');\" && node -c script/main.js && node -c server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faahim/happy-birthday.git"
+  },
+  "keywords": [
+    "Happy",
+    "Birthday"
+  ],
+  "author": "Afiur Rahman Fahim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/faahim/happy-birthday/issues"
+  },
+  "homepage": "https://github.com/faahim/happy-birthday#readme",
+  "dependencies": {}
+}

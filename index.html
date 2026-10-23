@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Happy Birthday, Akash V! 🎂✨</title>
+  <meta name="description" content="A special, aesthetic 20th birthday greeting letter and celebration for Akash V (Akshuu) on 24/10/2026.">
+
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans, Caveat (handwritten letter accent), Work Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <!-- Ambient background glow elements & stars canvas -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-sphere sphere-blue"></div>
+    <div class="glow-sphere sphere-purple"></div>
+    <div class="glow-sphere sphere-pink"></div>
+    <canvas id="particles-canvas"></canvas>
+  </div>
+
+  <!-- Confetti Canvas for celebratory bursts -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- HTML5 Audio for Tamil Birthday Song (with graceful Web Audio fallback) -->
+  <audio id="birthday-audio" preload="none">
+    <source src="audio/birthday-song.mp3" type="audio/mpeg">
+    <source src="assets/birthday-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Top Glassmorphism Navigation Bar -->
+  <header class="top-nav" id="top-nav">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="sparkle-icon" aria-hidden="true">✨</span>
+        <span class="brand-title">Celebrating <strong>Akash V</strong></span>
+      </div>
+
+      <nav class="nav-controls" aria-label="Website Controls">
+        <!-- Compact Music / Melody Toggle Button -->
+        <button id="audio-toggle-btn" class="nav-btn melody-btn" type="button" title="Play birthday music / song" aria-label="Toggle birthday music" aria-pressed="false" onclick="window.toggleAudio && window.toggleAudio()">
+          <span class="melody-icon" aria-hidden="true">🎵</span>
+          <span class="equalizer-bars" aria-hidden="true">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+          </span>
+          <span class="btn-label" id="melody-label">Music</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="nav-btn theme-btn" type="button" title="Switch light/dark theme" aria-label="Switch between light and dark theme" onclick="window.toggleTheme && window.toggleTheme()">
+          <span class="theme-icon light-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon dark-icon" aria-hidden="true">🌙</span>
+          <span class="theme-text" id="theme-text">Light</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Website Content -->
+  <main id="main-content">
+    <!-- 1. Birthday Landing Page (Hero Section) -->
+    <section class="hero-section" id="hero-section" aria-label="Birthday Landing Screen">
+      <div class="hero-content">
+        <!-- Milestone Badge -->
+        <div class="badge-pill" id="hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span class="badge-text">🌟 24/10/2026 • 20th Birthday Celebration</span>
+        </div>
+
+        <!-- Large Elegant Heading -->
+        <h1 class="hero-title" id="hero-title">
+          Happy Birthday, <span class="gradient-text">Akash V</span> <span class="cake-emoji" aria-hidden="true">🎂</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle" id="hero-subtitle">
+          Today is all about celebrating you!
+        </p>
+
+        <!-- Interactive Landing Action Buttons (Entire button clickable with inline fallback) -->
+        <div class="hero-actions">
+          <button id="open-surprise-btn" class="surprise-btn" type="button" aria-label="Open Your Birthday Surprise" onclick="window.startCountdownExperience && window.startCountdownExperience()">
+            <span class="surprise-btn-sparkle" aria-hidden="true">✨</span>
+            <span class="surprise-btn-text">Open Your Birthday Surprise 💜</span>
+          </button>
+
+          <button id="hero-story-btn" class="secondary-btn" type="button" aria-label="Watch Birthday Story" onclick="window.openStoryModal && window.openStoryModal()">
+            <span class="btn-icon" aria-hidden="true">🎬</span>
+            <span>Watch Birthday Story</span>
+          </button>
+        </div>
+
+        <!-- Floating Decorative Sparkles & Elements -->
+        <div class="hero-decorations" aria-hidden="true">
+          <span class="floating-item float-item-1">🎉</span>
+          <span class="floating-item float-item-2">⭐</span>
+          <span class="floating-item float-item-3">🎈</span>
+          <span class="floating-item float-item-4">✨</span>
+          <span class="floating-item float-item-5">💫</span>
+          <span class="floating-item float-item-6">💙</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. On-Page Birthday Greeting Letter Section -->
+    <section class="surprise-section" id="surprise-section" aria-labelledby="letter-heading">
+      <div class="surprise-wrapper">
+        <!-- The Greeting Letter Form Card -->
+        <article class="greeting-letter-card" id="birthday-letter-card">
+          <!-- Letterhead with Postage Stamp & Airmail Border -->
+          <div class="letter-airmail-header">
+            <div class="letter-postmark">
+              <span class="postmark-circle">SPECIAL DELIVERY • 24/10/2026</span>
+              <span class="postmark-date">24 OCT 2026</span>
+            </div>
+            <div class="letter-stamp">
+              <span class="stamp-icon">🎂</span>
+              <span class="stamp-text">AKASH V</span>
+              <span class="stamp-value">20 YEARS</span>
+            </div>
+          </div>
+
+          <!-- Letter Salutation & Recipient Photo (Clean photo, NO hat) -->
+          <div class="letter-top-row">
+            <div class="letter-recipient-info">
+              <div class="letter-to-badge">To Dearest:</div>
+              <h2 id="letter-heading" class="letter-recipient-name">Akash V <span class="nickname-tag">(Akshuu)</span></h2>
+              <p class="letter-date-line">📅 Date: 24th October, 2026 • 20th Milestone Birthday 🎉</p>
+            </div>
+            <div class="letter-avatar-frame">
+              <div class="letter-avatar-ring">
+                <img src="img/akash.jpg" alt="Akash V" class="letter-avatar-img" id="akash-letter-avatar">
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider Ribbon -->
+          <div class="letter-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-heart">💙 ✨ 💙</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- The Heartfelt Greeting Letter Body -->
+          <div class="letter-body-content">
+            <p class="letter-opening">Happy Birthday, Akash V.! 🎉💙</p>
+
+            <p class="letter-paragraph">
+              Wishing you many more happy returns of the day, endless happiness, good health, success in everything you pursue, and countless beautiful memories.
+            </p>
+
+            <p class="letter-paragraph">
+              May this new chapter of your life bring you exciting opportunities, peaceful moments, genuine smiles, and everything your heart wishes for.
+            </p>
+
+            <p class="letter-paragraph highlight-paragraph">
+              Keep shining, keep smiling, and never stop being the amazing person you are. Have the most wonderful birthday!
+            </p>
+
+            <!-- Letter Sign-off -->
+            <div class="letter-signoff">
+              <p class="signoff-words">With heartfelt love, warm wishes & endless blessings,</p>
+              <p class="signoff-handwritten">Always celebrating you, Akshuu! 💜</p>
+              <div class="wax-seal" aria-hidden="true">
+                <span class="seal-inner">🎂 20</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Letter Action Bar -->
+          <div class="letter-actions">
+            <button id="candle-btn" class="letter-action-btn candle-btn" type="button" aria-label="Make a wish and blow candle" onclick="window.blowCandle && window.blowCandle()">
+              <span class="flame-icon" id="candle-flame" aria-hidden="true">🕯️</span>
+              <span id="candle-label">Make a Wish</span>
+            </button>
+
+            <button id="balloon-release-btn" class="letter-action-btn" type="button" aria-label="Release birthday balloons" onclick="window.launchBalloons && window.launchBalloons()">
+              <span aria-hidden="true">🎈</span>
+              <span>Release Balloons</span>
+            </button>
+
+            <button id="confetti-burst-btn" class="letter-action-btn" type="button" aria-label="Trigger confetti celebration" onclick="window.triggerConfetti && window.triggerConfetti(3500)">
+              <span aria-hidden="true">🎊</span>
+              <span>Confetti Burst</span>
+            </button>
+
+            <button id="copy-message-btn" class="letter-action-btn" type="button" aria-label="Copy birthday greeting letter" onclick="window.copyLetterText && window.copyLetterText()">
+              <span aria-hidden="true">📋</span>
+              <span id="copy-btn-text">Copy Letter</span>
+            </button>
+          </div>
+
+          <!-- Footer link to Story -->
+          <div class="letter-footer">
+            <button id="card-play-story-btn" class="story-link-btn" type="button" aria-label="Watch Akash's animated birthday story" onclick="window.openStoryModal && window.openStoryModal()">
+              🎬 Watch the Story of Akash V &rarr;
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- 3. Countdown Experience Overlay (3 -> 2 -> 1 -> Milestone -> Pops up Greeting Letter) -->
+  <div class="countdown-overlay" id="countdown-overlay" role="dialog" aria-modal="true" aria-label="Birthday Surprise Countdown">
+    <div class="countdown-backdrop" onclick="window.closeCountdown && window.closeCountdown()"></div>
+    <div class="countdown-card">
+      <div class="countdown-milestone-tag">🎉 BIRTHDAY SURPRISE UNLOCKING 🎉</div>
+      <div class="countdown-number-box" id="countdown-display">3</div>
+      <div class="countdown-banner" id="countdown-banner" style="display: none;">
+        <span class="countdown-banner-date">24/10/2026</span>
+        <h2 class="countdown-banner-title">Happyyyy 20th Birthdayyy Akshuu! 🎂💙</h2>
+        <p class="countdown-banner-sub">Here is your special Birthday Greeting Letter! 💌</p>
+      </div>
+      <button id="skip-countdown-btn" class="skip-countdown-btn" type="button" aria-label="Skip Countdown" onclick="window.skipCountdown && window.skipCountdown()">
+        Skip to Letter &rarr;
+      </button>
+    </div>
+  </div>
+
+  <!-- 4. Greeting Letter POPUP Modal (Pops up automatically after countdown!) -->
+  <div class="letter-modal" id="letter-modal" role="dialog" aria-modal="true" aria-label="Birthday Greeting Letter Popup">
+    <div class="letter-modal-backdrop" onclick="window.closeLetterModal && window.closeLetterModal()"></div>
+    <div class="letter-modal-dialog">
+      <!-- Close Button -->
+      <button id="close-letter-modal-btn" class="letter-close-btn" type="button" aria-label="Close Greeting Letter" onclick="window.closeLetterModal && window.closeLetterModal()">
+        &times;
+      </button>
+
+      <!-- Letter Content inside Popup -->
+      <div class="popup-letter-content">
+        <!-- Airmail header -->
+        <div class="letter-airmail-header">
+          <div class="letter-postmark">
+            <span class="postmark-circle">SPECIAL DELIVERY • 24/10/2026</span>
+            <span class="postmark-date">24 OCT 2026</span>
+          </div>
+          <div class="letter-stamp">
+            <span class="stamp-icon">🎂</span>
+            <span class="stamp-text">AKASH V</span>
+            <span class="stamp-value">20 YEARS</span>
+          </div>
+        </div>
+
+        <div class="letter-top-row">
+          <div class="letter-recipient-info">
+            <div class="letter-to-badge">To Dearest:</div>
+            <h2 class="letter-recipient-name">Akash V <span class="nickname-tag">(Akshuu)</span></h2>
+            <p class="letter-date-line">📅 24th October, 2026 • Happy 20th Birthday! 🎉</p>
+          </div>
+          <div class="letter-avatar-frame">
+            <div class="letter-avatar-ring">
+              <!-- Clean real photo of Akash V (NO hat) -->
+              <img src="img/akash.jpg" alt="Akash V" class="letter-avatar-img">
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-heart">💙 ✨ 💙</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="letter-body-content">
+          <p class="letter-opening">Happy Birthday, Akash V.! 🎉💙</p>
+
+          <p class="letter-paragraph">
+            Wishing you many more happy returns of the day, endless happiness, good health, success in everything you pursue, and countless beautiful memories.
+          </p>
+
+          <p class="letter-paragraph">
+            May this new chapter of your life bring you exciting opportunities, peaceful moments, genuine smiles, and everything your heart wishes for.
+          </p>
+
+          <p class="letter-paragraph highlight-paragraph">
+            Keep shining, keep smiling, and never stop being the amazing person you are. Have the most wonderful birthday!
+          </p>
+
+          <div class="letter-signoff">
+            <p class="signoff-words">With heartfelt love, warm wishes & endless blessings,</p>
+            <p class="signoff-handwritten">Always celebrating you, Akshuu! 💜</p>
+            <div class="wax-seal" aria-hidden="true">
+              <span class="seal-inner">🎂 20</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-actions">
+          <button class="letter-action-btn" type="button" onclick="window.triggerConfetti && window.triggerConfetti(3500)">
+            <span aria-hidden="true">🎊</span>
+            <span>Confetti</span>
+          </button>
+          <button class="letter-action-btn" type="button" onclick="window.launchBalloons && window.launchBalloons()">
+            <span aria-hidden="true">🎈</span>
+            <span>Balloons</span>
+          </button>
+          <button class="letter-action-btn" type="button" onclick="window.copyLetterText && window.copyLetterText()">
+            <span aria-hidden="true">📋</span>
+            <span>Copy Wish</span>
+          </button>
+          <button class="letter-action-btn highlight" type="button" onclick="window.closeLetterModal(); window.openStoryModal();">
+            <span aria-hidden="true">🎬</span>
+            <span>Watch Story</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Preserved Interactive Story Modal (All Original Messages Fully Functional) -->
+  <div class="story-modal" id="story-modal" role="dialog" aria-modal="true" aria-label="Akash V's Birthday Story">
+    <div class="story-backdrop" onclick="window.closeStoryModal && window.closeStoryModal()"></div>
+    <div class="story-modal-box">
+      <!-- Modal Close Button -->
+      <button id="close-story-btn" class="story-close-btn" type="button" aria-label="Close Animated Story" onclick="window.closeStoryModal && window.closeStoryModal()">
+        &times;
+      </button>
+
+      <!-- Story Progress Bar & Navigation Header -->
+      <div class="story-header-bar">
+        <div class="story-step-indicator" id="story-step-indicator">Scene 1 of 7</div>
+        <div class="story-dots" id="story-dots" aria-label="Story Scene Selector">
+          <button class="story-dot active" data-step="0" aria-label="Scene 1" onclick="window.showScene(0)"></button>
+          <button class="story-dot" data-step="1" aria-label="Scene 2" onclick="window.showScene(1)"></button>
+          <button class="story-dot" data-step="2" aria-label="Scene 3" onclick="window.showScene(2)"></button>
+          <button class="story-dot" data-step="3" aria-label="Scene 4" onclick="window.showScene(3)"></button>
+          <button class="story-dot" data-step="4" aria-label="Scene 5" onclick="window.showScene(4)"></button>
+          <button class="story-dot" data-step="5" aria-label="Scene 6" onclick="window.showScene(5)"></button>
+          <button class="story-dot" data-step="6" aria-label="Scene 7" onclick="window.showScene(6)"></button>
+        </div>
+      </div>
+
+      <!-- Story Scenes Container with ALL Original Messages -->
+      <div class="story-scenes-viewport">
+        <!-- Scene 1: Hey Akash V -->
+        <div class="story-scene active" id="scene-0" data-scene="0">
+          <div class="scene-inner">
+            <div class="scene-pill">🌟 Special Greeting</div>
+            <h2 class="scene-title-large">
+              <span data-node-name="greeting">Hey</span>
+              <span class="gradient-text" data-node-name="name">Akash V</span>!
+            </h2>
+            <p class="scene-subtitle" data-node-name="greetingText">Today is all about celebrating you!</p>
+          </div>
+        </div>
+
+        <!-- Scene 2: It's your birthday!!! :D -->
+        <div class="story-scene" id="scene-1" data-scene="1">
+          <div class="scene-inner">
+            <div class="scene-pill">🎂 Milestone Celebration</div>
+            <h2 class="scene-title-medium" data-node-name="text1">It's your special day, Akash! 🎉</h2>
+            <p class="scene-subtitle">24/10/2026 • Happyyyy 20th Birthdayyy Akshuu!</p>
+          </div>
+        </div>
+
+        <!-- Scene 3: The Birthday Chatbox (Send button functional) -->
+        <div class="story-scene" id="scene-2" data-scene="2">
+          <div class="scene-inner">
+            <div class="story-chatbox">
+              <div class="chatbox-header">
+                <span class="chat-avatar-mini">🎂</span>
+                <span class="chat-name">Birthday Chat for Akshuu</span>
+              </div>
+              <div class="chatbox-bubble">
+                <p class="hbd-chatbox" id="story-chatbox-text" data-node-name="textInChatBox">Happy 20th birthday to you!! Wishing you many many happy returns of the day Akshuu...</p>
+                <button class="chat-send-btn" id="story-send-btn" type="button" data-node-name="sendButtonLabel" onclick="window.sendChatMsg && window.sendChatMsg()">Send 💙</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 4: Original Ideas & Thoughts ("That's what I was going to do... But then I stopped") -->
+        <div class="story-scene" id="scene-3" data-scene="3">
+          <div class="scene-inner scene-ideas">
+            <p class="idea-text" data-node-name="text2">Sending a plain text message was an option...</p>
+            <p class="idea-text" data-node-name="text3">But then I stopped.</p>
+            <p class="idea-text">
+              <span data-node-name="text4">I realised, I wanted to do something truly</span>
+              <strong class="highlight-tag" data-node-name="text4Adjective">special & magical</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Scene 5: "Because You are Special" + "S O" -->
+        <div class="story-scene" id="scene-4" data-scene="4">
+          <div class="scene-inner scene-ideas">
+            <p class="idea-text idea-special">
+              <span data-node-name="text5Entry">Because,</span>
+              <span class="special-name" data-node-name="text5Content">You are extraordinary, Akash</span>
+              <span class="smiley" data-node-name="smiley">✨</span>
+            </p>
+            <div class="big-so-text">
+              <span class="so-letter" data-node-name="bigTextPart1">S</span>
+              <span class="so-letter" data-node-name="bigTextPart2">O</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 6: Grand Reveal with Photo (NO hat!) and Floating Balloons -->
+        <div class="story-scene" id="scene-5" data-scene="5">
+          <div class="scene-inner scene-portrait">
+            <div class="story-avatar-wrapper">
+              <div class="story-avatar-ring">
+                <!-- Clean real photo of Akash V (NO hat) -->
+                <img src="img/akash.jpg" alt="Akash V" class="story-avatar-img" data-node-name="imagePath">
+              </div>
+            </div>
+            <h3 class="story-wish-heading" data-node-name="wishHeading">Happy Birthday, Akash V.! 🎂</h3>
+            <p class="story-wish-sub">24/10/2026 • Happyyyy 20th Birthdayyy Akshuu! 🎉💙</p>
+            <div class="story-floating-balloons" aria-hidden="true">
+              <img src="img/ballon1.svg" class="story-balloon s-b-1" alt="">
+              <img src="img/ballon2.svg" class="story-balloon s-b-2" alt="">
+              <img src="img/ballon3.svg" class="story-balloon s-b-3" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 7: Outro & Next Steps -->
+        <div class="story-scene" id="scene-6" data-scene="6">
+          <div class="scene-inner scene-outro">
+            <p class="outro-message" data-node-name="outroText">Hope this brought a bright smile to your face today, Akshuu!</p>
+            <p class="last-smile" data-node-name="outroSmiley">🎂</p>
+            <div class="outro-btn-group">
+              <button id="story-replay-btn" class="outro-btn secondary" type="button" data-node-name="replayText" onclick="window.showScene(0); window.startStoryAutoplay();">
+                🔄 Watch Story Again
+              </button>
+              <button id="story-to-letter-btn" class="outro-btn primary" type="button" onclick="window.closeStoryModal(); window.openLetterModal();">
+                💌 Open Birthday Greeting Letter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story Navigation Controls -->
+      <div class="story-nav-bar">
+        <button id="story-prev-btn" class="story-nav-btn" type="button" aria-label="Previous Scene" onclick="window.prevScene && window.prevScene()">
+          &larr; Prev
+        </button>
+        <button id="story-autoplay-btn" class="story-nav-btn play-pause-btn" type="button" aria-label="Toggle story autoplay" onclick="window.toggleStoryAutoplay && window.toggleStoryAutoplay()">
+          <span id="story-autoplay-icon">⏸️</span>
+          <span id="story-autoplay-text">Pause</span>
+        </button>
+        <button id="story-next-btn" class="story-nav-btn primary" type="button" aria-label="Next Scene" onclick="window.nextScene && window.nextScene()">
+          Next &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Floating Balloons Layer (Interactive Balloon Trigger) -->
+  <div id="page-balloons-layer" class="page-balloons-layer" aria-hidden="true"></div>
+
+  <!-- Toast Notification element -->
+  <div id="toast" class="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <p>Crafted with 💜 for <strong>Akash V</strong> on his 20th Birthday • 24/10/2026 ✨</p>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script/main.js"></script>
+</body>
+
+</html>
